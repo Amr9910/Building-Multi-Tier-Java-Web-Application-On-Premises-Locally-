@@ -10,9 +10,6 @@ Vagrant.configure("2") do |config|
     db01.vm.provider "virtualbox" do |vb|
       vb.memory = "2048"
     end
-
-    # Provisioning with setup_mariadb.sh script
-    db01.vm.provision "shell", path: "mariadb.sh", privileged: true
   end
 
   # Memcache VM
@@ -23,9 +20,6 @@ Vagrant.configure("2") do |config|
     mc01.vm.provider "virtualbox" do |vb|
       vb.memory = "900"
     end
-
-    # Provisioning with setup_memcached.sh script
-    mc01.vm.provision "shell", path: "memcached.sh", privileged: true
   end
 
   # RabbitMQ VM
@@ -36,9 +30,6 @@ Vagrant.configure("2") do |config|
     rmq01.vm.provider "virtualbox" do |vb|
       vb.memory = "600"
     end
-
-    # Provisioning with setup_rabbitmq.sh script
-    rmq01.vm.provision "shell", path: "rabbitmq.sh", privileged: true
   end
 
   # Tomcat VM
@@ -49,9 +40,6 @@ Vagrant.configure("2") do |config|
     app01.vm.provider "virtualbox" do |vb|
       vb.memory = "4200"
     end
-
-    # Provisioning with setup_tomcat.sh script
-    app01.vm.provision "shell", path: "tomcat.sh", privileged: true
   end
 
   # Nginx VM
@@ -63,8 +51,5 @@ Vagrant.configure("2") do |config|
       vb.gui = true
       vb.memory = "800"
     end
-
-    # Provisioning with setup_nginx.sh script
-    web01.vm.provision "shell", path: "nginx.sh", privileged: true
   end
 end
